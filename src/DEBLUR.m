@@ -3,17 +3,25 @@ clc;
 clear;
 close all;
 
-kernel_size = [13 13];sample_rate = 0.75; lambda = 0.002;alpha = 5500;
+kernel_size = [3 3];
+sample_rate = 0.75; 
+lambda = 0.002;
+alpha = 5500;
 
-B = imread('images/blur22.jpg');
-y = B;
-B = im2double(rgb2gray(B));
-Ib=B;
+image_name = "lenna";
+image_format = "png";
+source_destination = "../input/" + image_name + "." + image_format;
+target_destination = get_target_destination(image_name, image_format);
+T = imread(target_destination);
+I = imread(source_destination);
+y = I;
+B = im2double(rgb2gray(I));
+Ib = B;
 
 
 figure(1)
 subplot(221)
-imshow(Ib)
+imshow(I)
 
 %%
 [rsize_I,csize_I] = size(Ib);
@@ -171,10 +179,10 @@ yout = fftCGSRaL(Ib,kernel,PAR);
 % yout=uint8(yout);
 figure(1)
 subplot(221)
-imshow(Ib)
+imshow(I)
 subplot(222)
-imshow(yout,[])
+imshow(T,[])
 subplot(223)
 imshow(kernel,[])
-subplot(222)
-% imshow(yout,[])
+subplot(224)
+imshow(yout,[])
