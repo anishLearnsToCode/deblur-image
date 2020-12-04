@@ -1,0 +1,9 @@
+lenna [5 5]
+bridge [5 5]
+swiss-1 [5 5]
+portrait-5 [5 5]
+swiss-2 [5 5]
+swiss-3 [5 5]
+butterfly [7 7]
+eifel (meh)
+portarit-1 bad

@@ -18,7 +18,7 @@ def scale_image(scale_percent=100) -> np.ndarray:
     return cv2.resize(I, dim, interpolation=cv2.INTER_AREA)
 
 # adding gaussian blur in the resized image
-G = cv2.GaussianBlur(scale_image(scale_percent=100), (13, 13), 0)
+G = cv2.GaussianBlur(scale_image(scale_percent=40), (13, 13), 0)
 
 cv2.imshow('original', I)
 cv2.imshow("Resized image", G)
@@ -26,4 +26,4 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # save the gaussian blur image in input dir
-cv2.imwrite(os.path.join(INPUT_DIR, 'lenna.png'), G)
+cv2.imwrite(os.path.join(INPUT_DIR, 'swiss-3.png'), G)
