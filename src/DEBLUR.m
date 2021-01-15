@@ -4,11 +4,9 @@ clear;
 close all;
 
 
-image_name = "lenna";
+image_name = "bridge";
 image_format = "png";
 source_destination = "../input/" + image_name + "." + image_format;
-% t_dest = get_target_destination(image_name, image_format);
-% T = imread(t_dest);
 I = imread(source_destination);
 
 [YR, kernel_r] = deblur_single_channel(image_name, image_format, 1);

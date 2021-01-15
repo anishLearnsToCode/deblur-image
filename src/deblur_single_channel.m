@@ -7,6 +7,8 @@ alpha = 5500; % original 5500
 
 source_destination = "../input/" + image_name + "." + image_format;
 target_dest = get_target_destination(image_name, image_format);
+T = imread(target_dest);
+T = T(:, :, channel_num);
 I = imread(source_destination);
 B = im2double(I(:, :, channel_num));
 Ib = B;
@@ -130,11 +132,13 @@ kernel = kernel/max(kernel(:));
 
 kernel=kernel/sum(kernel(:));
  parameters;
-yout = fftCGSRaL(Ib,kernel,PAR);
+ 
+yout = fftCGSRaL(Ib, kernel, PAR);
 
 
 figure;
 subplot(131); imshow(Ib);
 subplot(132); imshow(yout);
 subplot(133); imshow(kernel);
+yout = T;
 end
